@@ -1,0 +1,43 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+
+<center>
+    <h1 class="bg-info text-white is-size-3">Registro de Gas</h1>
+</center>
+<center>
+    <form>
+        <a href="/">Atras</a>
+    </form>
+</center>
+
+<center>
+    <form action="/consultaGas" method="post">
+        <label for="id">Ingresa el Id</label>
+        <input type="number" name="id">
+        <br>
+        <input type="submit" value="Enviar">
+        <br>
+        <table class="table" border="2">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Número de Registro</th>
+                <th scope="col">Nombre del Sensor</th>
+                <th scope="col">Valor Registrado</th>
+                <th scope="col">Fecha y Hora del Registro</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for filaGas in listaSensorGas %}
+            <tr>
+                <td scope="row" >{{ filaGas[0] }}</td>
+                <td>{{ filaGas[1] }}</td>
+                <td>{{ filaGas[2] }}</td>
+                <td>{{ filaGas[3] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</center>
+{% endblock %}

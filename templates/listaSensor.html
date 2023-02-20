@@ -1,0 +1,43 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="bg-info text-white is-size-3">Lista de Sensores</h3>
+            <form action="/clista">
+                <table class="table" border="2">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Fabricante</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for fila in datos %}
+                    <tr>
+                        <td>{{fila[1]}}</td>
+                        <td>{{fila[2]}}</td>
+                        <td>{{fila[3]}}</td>
+                        <td>
+                            {# Pasar el id (lo que hay en fila[0] #}
+                            <a href="{{url_for('editar_dato', id=fila[0])}}" class="button is-info mt-2">Editar</a>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+</body>
+</html>

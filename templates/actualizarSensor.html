@@ -1,0 +1,19 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+<section class="section">
+    <form action="{{url_for('actualizar_dato')}}" method="post">
+        <input type="hidden" name="id" value="{{ dato[0] }}">
+        <label for="nombre">Nombre: </label>
+        <input value="{{ dato[1] }}" required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
+        <label for="descripcion">Descripcion: </label>
+        <input value="{{ dato[2] }}" required type="text" class="input" placeholder="Descripcion" name="descripcion"
+               id="descripcion">
+        <label for="fabricante">Fabricante: </label>
+        <input value="{{ dato[3] }}" required type="text" class="input" placeholder="Fabricante" name="fabricante"
+               id="fabricante">
+        <button type="submit" class="button is-succes mt-2">Guardar</button>
+        <a href="/clista">Atras</a>
+    </form>
+</section>
+{% endblock %}

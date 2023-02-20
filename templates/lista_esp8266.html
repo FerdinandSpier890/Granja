@@ -1,0 +1,35 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+  <center class="bg-info text-white is-size-3">
+    WeMos ESP8266 D1
+</center>
+<meta http-equiv="refresh" content="1">
+<center>
+
+</center>
+<center>
+    <form>
+        <table class="table" border="2">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Número de Registro</th>
+                <th scope="col">Gas</th>
+                <th scope="col">Temperatura</th>
+                <th scope="col">Humedad</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for fila in datos %}
+            <tr>
+                <td scope="row">{{ fila[0] }}</td>
+                <td>{{ fila[1] }}</td>
+                <td>{{ fila[2] }}</td>
+                <td>{{ fila[3] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</center>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+<center class="bg-info text-white is-size-3">
+    Registro de Temperatura
+</center>
+<center>
+    <form>
+        <a href="/">Atras</a>
+    </form>
+</center>
+<center>
+    <form action="/consultaTemperatura" method="post">
+        <label for="id">Ingresa el Id</label>
+        <input type="number" name="id">
+        <br>
+        <input type="submit" value="Enviar">
+        <br>
+        <table class="table" border="2">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Número de Registro</th>
+                <th scope="col">Nombre del Sensor</th>
+                <th scope="col">Valor Registrado en Grandos Celsius</th>
+                <th scope="col">Fecha y Hora del Registro</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for filaTemperatura in listaSensorTemperatura %}
+            <tr>
+                <td scope="row">{{ filaTemperatura[0] }}</td>
+                <td>{{ filaTemperatura[1] }}</td>
+                <td>{{ filaTemperatura[2] }}</td>
+                <td>{{ filaTemperatura[3] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</center>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="bg-info text-white is-size-3">Lista de Gallinas Registradas</h3>
+            <form action="/glista">
+                <table class="table" border="2">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Altura</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Raza</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for fila in datos %}
+                    <tr>
+                        <td>{{fila[1]}}</td>
+                        <td>{{fila[2]}}</td>
+                        <td>{{fila[3]}}</td>
+                        <td>
+                            <a href="{{url_for('editarGallinas', id=fila[0])}}" class="button is-info mt-2">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{{url_for('eliminarGallinas', id=fila[0])}}"
+                               class="button is-danger mt-2">Eliminar</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+            <a href="{{url_for('insertarGallinas')}}" class="button is-success mt-2">Insertar</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

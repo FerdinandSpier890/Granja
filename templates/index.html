@@ -1,0 +1,43 @@
+{% extends "plantilla.html" %}
+
+{% block contenido %}
+
+<meta http-equiv="refresh" content="1">
+<center>
+    <h1 class="bg-info text-white is-size-3">Monitoreo - Granja IoT</h1>
+</center>
+
+<center>
+    <form action="/sensores" method="POST">
+
+        <table class="table" border="2">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Humedad en Porcentaje</th>
+                <th>{{ temp }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Presencia de Gas</th>
+                <th>{{ hum }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Temperatura en Grados Celsius</th>
+                <th>{{ ga }}</th>
+            </tr>
+            </thead>
+        </table>
+    </form>
+</center>
+<br>
+<br>
+<center>
+    <form>
+        <a href="/listaGas">Registro Gas</a>
+        <br>
+        <a href="/listaTemperatura">Registro Temperatura</a>
+        <br>
+        <a href="/listaHumedad">Registro Humedad</a>
+        <br>
+    </form>
+</center>
+{% endblock %}
